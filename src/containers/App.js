@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import Header from '../components/Header/Header.js';
 
 class App extends React.Component {
 
@@ -9,8 +10,10 @@ class App extends React.Component {
 
     render() {
         return(
-            <div className="App">
-
+            <div>
+                <Header/>
+                {/* <ImageLinkForm/>
+                <FaceRecognition/> */}
             </div>
         )
     }
