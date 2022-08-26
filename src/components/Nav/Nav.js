@@ -1,9 +1,10 @@
 import './Nav.css';
+import Link from '../Link/Link.js';
 
 const Nav = () => {
     return(
         <div className="nav">
-            <h1>Logout</h1>
+            <Link text="Sign Out"/>
         </div>
     );
 }

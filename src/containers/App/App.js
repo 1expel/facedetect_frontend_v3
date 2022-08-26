@@ -91,13 +91,9 @@ class App extends React.Component {
 
     render() {
         let content;
-        if(this.state.route === "signIn") {
-            content = <SignIn/>;
-        } else if(this.state.route === "signUp") {
-            content = <SignUp/>;
-        } else if(this.state.route === "home") {
-            content = <Home/>;
-        }
+        if(this.state.route === "signIn") content = <SignIn/>;
+        else if(this.state.route === "signUp") content = <SignUp/>;
+        else if(this.state.route === "home") content = <Home/>;
         return(
             <div className="app">
                 <Particles id="tsparticles" options={particleOptions}/>

@@ -1,20 +1,22 @@
 import './ImageLinkForm.css';
+import Form from '../Form/Form.js';
+import Input from '../Input/Input.js';
+import Button from '../Button/Button.js';
 
 const ImageLinkForm = (props) => {
     return(
         <div className="imageLinkForm">
             <h1>Enter an Image Url That Has a Face to Be Detected</h1>
-            <div className="form1">
-                <input 
+            <Form>
+                <Input                    
                     onChange={props.inputChangeHandler}
                     onKeyPress={props.enterKeyPressHandler}
-                    type="text"
                 />
-                <button
+                <Button
                     onClick={props.buttonClickHandler}
-                >Enter</button>
-            </div>
-
+                    text="Enter"
+                />
+            </Form>
         </div>
     );
 }
