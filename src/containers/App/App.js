@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
 import Particles from 'react-tsparticles';
-import Header from '../components/Header/Header.js';
-import ImageLinkForm from '../components/ImageLinkForm/ImageLinkForm.js';
-import FaceRecognition from '../components/FaceRecognition/FaceRecognition.js';
+import Header from '../../components/Header/Header.js';
+import Home from '../Home/Home.js';
+import Footer from '../../components/Footer/Footer.js';
 
 const particleOptions = {
     background: {
@@ -86,11 +86,11 @@ class App extends React.Component {
 
     render() {
         return(
-            <div>
+            <div className="app">
                 <Particles id="tsparticles" options={particleOptions}/>
                 <Header/>
-                <ImageLinkForm/>
-                <FaceRecognition/>
+                <Home/>
+                <Footer/>
             </div>
         )
     }
