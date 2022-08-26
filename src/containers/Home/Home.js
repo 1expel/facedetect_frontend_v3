@@ -1,7 +1,7 @@
 import './Home.css';
+import React from 'react';
 import ImageLinkForm from '../../components/ImageLinkForm/ImageLinkForm.js';
 import FaceRecognition from '../../components/FaceRecognition/FaceRecognition.js';
-import React from 'react';
 
 class Home extends React.Component {
 

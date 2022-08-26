@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import Particles from 'react-tsparticles';
 import Header from '../../components/Header/Header.js';
+import SignIn from '../SignIn/SignIn.js';
+import SignUp from '../SignUp/SignUp.js';
 import Home from '../Home/Home.js';
 import Footer from '../../components/Footer/Footer.js';
 
@@ -82,17 +84,28 @@ class App extends React.Component {
 
     constructor() {
         super();
+        this.state = {
+            route: "home"
+        }
     }
 
     render() {
+        let content;
+        if(this.state.route === "signIn") {
+            content = <SignIn/>;
+        } else if(this.state.route === "signUp") {
+            content = <SignUp/>;
+        } else if(this.state.route === "home") {
+            content = <Home/>;
+        }
         return(
             <div className="app">
                 <Particles id="tsparticles" options={particleOptions}/>
                 <Header/>
-                <Home/>
+                {content}
                 <Footer/>
             </div>
-        )
+        );
     }
 
 }
