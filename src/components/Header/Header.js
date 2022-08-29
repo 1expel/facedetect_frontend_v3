@@ -2,11 +2,11 @@ import './Header.css';
 import Logo from '../Logo/Logo.js';
 import Nav from '../Nav/Nav.js';
 
-const Header = () => {
+const Header = (props) => {
     return(
         <div className="header">
             <Logo/>
-            <Nav/>
+            <Nav routeChangeHandler={props.routeChangeHandler}/>
         </div>
     );
 }

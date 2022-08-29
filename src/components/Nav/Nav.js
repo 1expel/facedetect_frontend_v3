@@ -1,10 +1,14 @@
 import './Nav.css';
 import Link from '../Link/Link.js';
 
-const Nav = () => {
+const Nav = (props) => {
     return(
         <div className="nav">
-            <Link text="Sign Out"/>
+            <Link 
+                onClick={props.routeChangeHandler}
+                newRoute="signIn"
+                text="Sign Out"
+            />
         </div>
     );
 }

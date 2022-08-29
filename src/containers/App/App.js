@@ -89,6 +89,10 @@ class App extends React.Component {
         }
     }
 
+    routeChangeHandler(route) {
+        this.setState({route: route});
+    }
+
     render() {
         let content;
         if(this.state.route === "signIn") content = <SignIn/>;
@@ -97,7 +101,7 @@ class App extends React.Component {
         return(
             <div className="app">
                 <Particles id="tsparticles" options={particleOptions}/>
-                <Header/>
+                <Header routeChangeHandler={this.routeChangeHandler}/>
                 {content}
                 <Footer/>
             </div>
