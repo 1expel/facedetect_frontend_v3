@@ -1,12 +1,7 @@
-import React from 'react';
-import './App.css';
-import ParticlesBackground from '../../components/ParticlesBackground/ParticlesBackground';
-import Particles from 'react-tsparticles';
-import Header from '../../components/Header/Header.js';
-import SignIn from '../SignIn/SignIn.js';
-import SignUp from '../SignUp/SignUp.js';
-import Home from '../Home/Home.js';
-import Footer from '../../components/Footer/Footer.js';
+import './ParticlesBackground.css';
+import Particles from "react-tsparticles";
+import { loadFull } from "tsparticles";
+import { useCallback } from "react";
 
 const particleOptions = {
     background: {
@@ -81,41 +76,20 @@ const particleOptions = {
     detectRetina: true,
 }
 
-class App extends React.Component {
+const ParticlesBackground = () => {
 
-    constructor() {
-        super();
-        this.state = {
-            route: "home"
-        }
-    }
+    const particlesInit = useCallback(async (engine) => {
+        await loadFull(engine);
+    }, []);
 
-    onRouteChange = (route) => {
-        this.setState({route: route});
-    }
-
-    render() {
-        let content;
-        if(this.state.route === "signIn") {
-            content = <SignIn onRouteChange={this.onRouteChange}/>;
-        } else if(this.state.route === "signUp") {
-            content = <SignUp onRouteChange={this.onRouteChange}/>;
-        } else if(this.state.route === "home") {
-            content = <Home/>;
-        }
-        return(
-            <div className="app">
-                <ParticlesBackground />
-                <Header 
-                    route={this.state.route} 
-                    onRouteChange={this.onRouteChange}
-                />
-                {content}
-                <Footer/>
-            </div>
-        );
-    }
+    return(
+        <Particles
+            id="tsparticles"
+            init={particlesInit}
+            options={particleOptions}
+        />
+    )
 
 }
 
-export default App;
+export default ParticlesBackground;
