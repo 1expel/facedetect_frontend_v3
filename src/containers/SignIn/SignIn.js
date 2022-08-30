@@ -14,24 +14,17 @@ class SignIn extends React.Component {
         }
     }
 
-    onEmailChange() {
-
+    onChange = (event, name) => {
+        if(name === "email") this.setState({email: event.target.value});
+        else if(name === "password") this.setState({password: event.target.value});
     }
 
-    onPasswordChange() {
-
+    onKeyPress = (event) => {
+        if(event.key === "Enter") this.props.onRouteChange("home");
     }
 
-    onEmailKeyPress() {
-
-    }
-
-    onPasswordKeyPress() {
-
-    }
-
-    onSignInClick() {
-
+    onClick = () => {
+        this.props.onRouteChange("home");
     }
 
     render() {
@@ -40,16 +33,18 @@ class SignIn extends React.Component {
                 <h1>Sign In</h1>
                 <h6>Email</h6>
                 <Input
-                    onChange={this.onEmailChange}
-                    onKeyPress={this.onEmailKeyPress}
+                    onChange={this.onChange}
+                    onKeyPress={this.onKeyPress}
+                    name="email"
                 />
                 <h6>Password</h6>
                 <Input 
-                    onChange={this.onPasswordChange}
-                    onKeyPress={this.onPasswordKeyPress}
+                    onChange={this.onChange}
+                    onKeyPress={this.onKeyPress}
+                    name="password"
                 />
                 <Button
-                    onClick={this.onSignInClick}
+                    onClick={this.onClick}
                     text="Sign In"
                 />
                 <h6>Don't have an account? Sign Up</h6>

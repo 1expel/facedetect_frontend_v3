@@ -25,6 +25,10 @@ class SignUp extends React.Component {
         if(event.key === "Enter") this.props.onRouteChange("home");
     }
 
+    onClick = () => {
+        this.props.onRouteChange("home");
+    }
+
     render() {
         return(
             <Form>
