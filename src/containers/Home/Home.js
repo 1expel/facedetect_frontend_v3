@@ -13,15 +13,15 @@ class Home extends React.Component {
         }
     }
 
-    inputChangeHandler = (event) => {
+    onUrlChange = (event) => {
         this.setState({input: event.target.value});
     }
 
-    enterKeyPressHandler = (event) => {
+    onEnterKeyPress = (event) => {
         if(event.key === "Enter") this.setState({imageUrl: this.state.input});
     }
 
-    buttonClickHandler = () => {
+    onEnterClick = () => {
         this.setState({imageUrl: this.state.input});
     }
 
@@ -29,9 +29,9 @@ class Home extends React.Component {
         return(
             <div className="home">
                 <ImageLinkForm 
-                    inputChangeHandler={this.inputChangeHandler} 
-                    enterKeyPressHandler={this.enterKeyPressHandler}
-                    buttonClickHandler={this.buttonClickHandler}
+                    onUrlChange={this.onUrlChange} 
+                    onEnterKeyPress={this.onEnterKeyPress}
+                    onEnterClick={this.onEnterClick}
                 />
                 <FaceRecognition
                     imageUrl={this.state.imageUrl}

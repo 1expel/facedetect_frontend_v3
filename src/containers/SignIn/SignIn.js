@@ -14,23 +14,23 @@ class SignIn extends React.Component {
         }
     }
 
-    emailChangeHandler() {
+    onEmailChange() {
 
     }
 
-    passwordChangeHandler() {
+    onPasswordChange() {
 
     }
 
-    emailKeyPressHandler() {
+    onEmailKeyPress() {
 
     }
 
-    passwordKeyPressHandler() {
+    onPasswordKeyPress() {
 
     }
 
-    buttonClickHandler() {
+    onSignInClick() {
 
     }
 
@@ -40,16 +40,17 @@ class SignIn extends React.Component {
                 <h1>Sign In</h1>
                 <h6>Email</h6>
                 <Input
-                    onChange={this.emailChangeHandler}
-                    onKeyPress={this.emailKeyPressHandler}
+                    onChange={this.onEmailChange}
+                    onKeyPress={this.onEmailKeyPress}
                 />
                 <h6>Password</h6>
                 <Input 
-                    onChange={this.passwordChangeHandler}
-                    onKeyPress={this.passwordKeyPressHandler}
+                    onChange={this.onPasswordChange}
+                    onKeyPress={this.onPasswordKeyPress}
                 />
                 <Button
-                    onClick={this.buttonClickHandler}
+                    onClick={this.onSignInClick}
+                    text="Sign In"
                 />
                 <h6>Don't have an account? Sign Up</h6>
             </Form>

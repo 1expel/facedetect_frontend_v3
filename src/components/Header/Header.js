@@ -6,7 +6,10 @@ const Header = (props) => {
     return(
         <div className="header">
             <Logo/>
-            <Nav routeChangeHandler={props.routeChangeHandler}/>
+            <Nav 
+                route={props.route} 
+                onRouteChange={props.onRouteChange}
+            />
         </div>
     );
 }

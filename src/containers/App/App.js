@@ -89,19 +89,25 @@ class App extends React.Component {
         }
     }
 
-    routeChangeHandler(route) {
+    onRouteChange = (route) => {
         this.setState({route: route});
     }
 
     render() {
         let content;
-        if(this.state.route === "signIn") content = <SignIn/>;
-        else if(this.state.route === "signUp") content = <SignUp/>;
+        if(this.state.route === "signIn") content = <SignIn onRouteChange={this.onRouteChange}/>;
+        else if(this.state.route === "signUp") content = <SignUp onRouteChange={this.onRouteChange}/>;
         else if(this.state.route === "home") content = <Home/>;
         return(
             <div className="app">
-                <Particles id="tsparticles" options={particleOptions}/>
-                <Header routeChangeHandler={this.routeChangeHandler}/>
+                <Particles 
+                    id="tsparticles" 
+                    options={particleOptions}
+                />
+                <Header 
+                    route={this.state.route} 
+                    onRouteChange={this.onRouteChange}
+                />
                 {content}
                 <Footer/>
             </div>
