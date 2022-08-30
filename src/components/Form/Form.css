@@ -1,6 +1,9 @@
 .form {
     text-align: center;
-    border: 3px solid black;
+    margin: auto;
+    padding:25px;
+    background: linear-gradient(89deg, #FF5EDF 0%, #04C8DE 100%);
+    border: 2px solid black;
     border-radius: 5px;
 }
 

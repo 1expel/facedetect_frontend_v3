@@ -95,9 +95,13 @@ class App extends React.Component {
 
     render() {
         let content;
-        if(this.state.route === "signIn") content = <SignIn onRouteChange={this.onRouteChange}/>;
-        else if(this.state.route === "signUp") content = <SignUp onRouteChange={this.onRouteChange}/>;
-        else if(this.state.route === "home") content = <Home/>;
+        if(this.state.route === "signIn") {
+            content = <SignIn onRouteChange={this.onRouteChange}/>;
+        } else if(this.state.route === "signUp") {
+            content = <SignUp onRouteChange={this.onRouteChange}/>;
+        } else if(this.state.route === "home") {
+            content = <Home/>;
+        }
         return(
             <div className="app">
                 <Particles 

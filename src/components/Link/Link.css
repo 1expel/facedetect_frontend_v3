@@ -1,0 +1,17 @@
+.link {
+    color: white;
+    padding-left: 30px;
+}
+
+.active {
+
+}
+
+.notActive {
+    opacity: 0.5;
+}
+
+.notActive:hover {
+    cursor: pointer;
+    opacity: 1;
+}

@@ -2,7 +2,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(89deg, #FF5EDF 0%, #04C8DE 100%);
     border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px black;
     width: 100px;
     height: 100px;
 }
