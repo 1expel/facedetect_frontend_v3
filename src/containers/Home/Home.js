@@ -18,16 +18,15 @@ class Home extends React.Component {
     }
 
     onKeyPress = (event) => {
-        if(event.key === "Enter") this.setState({imageUrl: this.state.input});
-        this.faceDetect();
+        if(event.key === "Enter") this.setState({imageUrl: this.state.input}, this.faceDetect);
     }
 
     onClick = () => {
-        this.setState({imageUrl: this.state.input});
-        this.faceDetect();
+        this.setState({imageUrl: this.state.input}, this.faceDetect);
     }
 
     faceDetect = () => {
+        
     }
 
     render() {
