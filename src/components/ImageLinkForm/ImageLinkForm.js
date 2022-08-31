@@ -9,11 +9,11 @@ const ImageLinkForm = (props) => {
             <h1>Enter an Image Url That Has a Face to Be Detected</h1>
             <Form>
                 <Input                    
-                    onChange={props.onUrlChange}
-                    onKeyPress={props.onEnterKeyPress}
+                    onChange={props.onChange}
+                    onKeyPress={props.onKeyPress}
                 />
                 <Button
-                    onClick={props.onEnterClick}
+                    onClick={props.onClick}
                     text="Enter"
                 />
             </Form>
