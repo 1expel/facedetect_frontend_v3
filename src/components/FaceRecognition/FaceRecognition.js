@@ -10,7 +10,7 @@ const FaceRecognition = (props) => {
             <div className="faceRecognition">
                 <img 
                 src={props.imageUrl}
-                alt="image" 
+                alt="" 
                 width="500" 
                 height="auto"/>
             </div>
