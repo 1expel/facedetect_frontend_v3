@@ -15,16 +15,40 @@ class SignIn extends React.Component {
     }
 
     onChange = (event, name) => {
-        if(name === "email") this.setState({email: event.target.value});
-        else if(name === "password") this.setState({password: event.target.value});
+        if(name === "email") {
+            this.setState({email: event.target.value});
+        } else if(name === "password") {
+            this.setState({password: event.target.value});
+        }
     }
 
     onKeyPress = (event) => {
-        if(event.key === "Enter") this.props.onRouteChange("home");
+        if(event.key === "Enter") {
+            this.signIn();
+        }
     }
 
     onClick = () => {
-        this.props.onRouteChange("home");
+        this.signIn();
+    }
+
+    signIn = async () => {
+        try {
+            const res = await fetch('http://localhost:3001/user/signIn', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    email: this.state.email,
+                    password: this.state.password
+                })
+            });
+            console.log(res.status);
+            const user = await res.json();
+            console.log(user);
+            this.props.onRouteChange("home");
+        } catch (err) {
+            console.log(err);
+        }
     }
 
     render() {
