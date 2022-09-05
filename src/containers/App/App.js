@@ -42,13 +42,17 @@ class App extends React.Component {
                 onRouteChange={this.onRouteChange}
                 loadUser={this.loadUser}
             />;
-        } else if(this.state.route === "signUp") {
+        } 
+        else if(this.state.route === "signUp") {
             content = <SignUp 
                 onRouteChange={this.onRouteChange}
                 loadUser={this.loadUser}
             />;
-        } else if(this.state.route === "home") {
-            content = <Home/>;
+        } 
+        else if(this.state.route === "home") {
+            content = <Home
+                user={this.state.user}
+            />;
         }
         return(
             <div className="app">

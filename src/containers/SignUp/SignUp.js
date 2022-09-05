@@ -16,9 +16,15 @@ class SignUp extends React.Component {
     }
 
     onChange = (event, name) => {
-        if(name === "name") this.setState({name: event.target.value});
-        else if(name === "email") this.setState({email: event.target.value});
-        else if(name === "password") this.setState({password: event.target.value});
+        if(name === "name") {
+            this.setState({name: event.target.value});
+        }
+        else if(name === "email") {
+            this.setState({email: event.target.value});
+        }
+        else if(name === "password") {
+            this.setState({password: event.target.value});
+        }
     }
 
     onKeyPress = (event) => {
@@ -42,13 +48,15 @@ class SignUp extends React.Component {
                     password: this.state.password
                 })
             });
-            console.log(res.status);
             const user = await res.json();
-            console.log(user);
+            if(res.status !== 201) {
+                throw new Error(user);
+            }
             this.props.loadUser(user);
             this.props.onRouteChange("home");
-        } catch(err) {
-            console.log(err);
+        } 
+        catch(err) {
+            alert(err);
         }
 
     }

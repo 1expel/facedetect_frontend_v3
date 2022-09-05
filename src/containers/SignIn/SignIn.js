@@ -17,7 +17,8 @@ class SignIn extends React.Component {
     onChange = (event, name) => {
         if(name === "email") {
             this.setState({email: event.target.value});
-        } else if(name === "password") {
+        } 
+        else if(name === "password") {
             this.setState({password: event.target.value});
         }
     }
@@ -42,13 +43,15 @@ class SignIn extends React.Component {
                     password: this.state.password
                 })
             });
-            console.log(res.status);
             const user = await res.json();
-            console.log(user);
+            if(res.status !== 200) {
+                throw new Error(user);
+            }
             this.props.loadUser(user);
-            this.props.onRouteChange("home");
-        } catch(err) {
-            console.log(err);
+            this.props.onRouteChange('home');
+        } 
+        catch(err) {
+            alert(err);
         }
     }
 
