@@ -13,13 +13,7 @@ class App extends React.Component {
         super();
         this.state = {
             route: 'signIn',
-            user: {
-                id: '',
-                name: '',
-                email: '',
-                entries: 0,
-                date: ''
-            }
+            user: {}
         }
     }
 
@@ -27,12 +21,32 @@ class App extends React.Component {
         this.setState({route: route});
     }
 
+    loadUser = (user) => {
+        this.setState({
+            user: {
+                id: user.id,
+                name: user.name,
+                email: user.email,
+                entries: user.entries,
+                date: user.date
+            }
+        }, function() {
+            console.log(this.state.user);
+        });
+    }
+
     render() {
         let content;
         if(this.state.route === "signIn") {
-            content = <SignIn onRouteChange={this.onRouteChange}/>;
+            content = <SignIn 
+                onRouteChange={this.onRouteChange}
+                loadUser={this.loadUser}
+            />;
         } else if(this.state.route === "signUp") {
-            content = <SignUp onRouteChange={this.onRouteChange}/>;
+            content = <SignUp 
+                onRouteChange={this.onRouteChange}
+                loadUser={this.loadUser}
+            />;
         } else if(this.state.route === "home") {
             content = <Home/>;
         }

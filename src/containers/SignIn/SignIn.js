@@ -45,6 +45,7 @@ class SignIn extends React.Component {
             console.log(res.status);
             const user = await res.json();
             console.log(user);
+            this.props.loadUser(user);
             this.props.onRouteChange("home");
         } catch(err) {
             console.log(err);
