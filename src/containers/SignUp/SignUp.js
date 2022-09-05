@@ -22,11 +22,34 @@ class SignUp extends React.Component {
     }
 
     onKeyPress = (event) => {
-        if(event.key === "Enter") this.props.onRouteChange("home");
+        if(event.key === "Enter") {
+            this.signUp();
+        }
     }
 
     onClick = () => {
-        this.props.onRouteChange("home");
+        this.signUp();
+    }
+
+    signUp = async () => {
+        try {
+            const res = await fetch('http://localhost:3001/user/signUp', {
+                method: "POST",
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    name: this.state.name,
+                    email: this.state.email,
+                    password: this.state.password
+                })
+            });
+            console.log(res.status);
+            const user = await res.json();
+            console.log(user);
+            this.props.onRouteChange("home");
+        } catch(err) {
+            console.log(err);
+        }
+
     }
 
     render() {

@@ -12,7 +12,14 @@ class App extends React.Component {
     constructor() {
         super();
         this.state = {
-            route: "signIn"
+            route: 'signIn',
+            user: {
+                id: '',
+                name: '',
+                email: '',
+                entries: 0,
+                date: ''
+            }
         }
     }
 
