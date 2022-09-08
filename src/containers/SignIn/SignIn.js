@@ -69,6 +69,7 @@ class SignIn extends React.Component {
                 <Input 
                     onChange={this.onChange}
                     onKeyPress={this.onKeyPress}
+                    type="password"
                     name="password"
                 />
                 <Button

@@ -28,10 +28,8 @@ class App extends React.Component {
                 name: user.name,
                 email: user.email,
                 entries: user.entries,
-                date: user.date
+                joined: user.joined
             }
-        }, function() {
-            console.log(this.state.user);
         });
     }
 
