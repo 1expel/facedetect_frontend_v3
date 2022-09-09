@@ -9,10 +9,12 @@ const FaceRecognition = (props) => {
         return(
             <div className="faceRecognition">
                 <img 
-                src={props.imageUrl}
-                alt="" 
-                width="500" 
-                height="auto"/>
+                    onLoad={props.onLoad}
+                    src={props.imageUrl}
+                    alt="" 
+                    width="500" 
+                    height="auto"
+                />
             </div>
         );
     }
