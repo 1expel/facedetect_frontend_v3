@@ -10,7 +10,8 @@ class Home extends React.Component {
         super();
         this.state = {
             input: "",
-            imageUrl: ""
+            imageUrl: "",
+            box: {}
         }
     }
 
@@ -28,10 +29,6 @@ class Home extends React.Component {
         this.setState({imageUrl: this.state.input}, this.faceDetect);
     }
 
-    onLoad = () => {
-        
-    }
-
     faceDetect = async () => {
         try {
             const res = await fetch('http://localhost:3001/clarifai/faceDetection', {
@@ -45,6 +42,8 @@ class Home extends React.Component {
                 throw new Error();
             }
             const box = await res.json();
+            console.log(typeof box.top_row);
+            this.setState({box: box});
             const res2 = await fetch('http://localhost:3001/user/entries', {
                 method: 'PUT',
                 headers: {'Content-Type': 'application/json'},
@@ -74,8 +73,8 @@ class Home extends React.Component {
                     onClick={this.onClick}
                 />
                 <FaceRecognition
-                    onLoad={this.onLoad}
                     imageUrl={this.state.imageUrl}
+                    box={this.state.box}
                 />
             </div>
         );
