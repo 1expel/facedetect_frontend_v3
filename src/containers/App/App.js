@@ -17,20 +17,14 @@ class App extends React.Component {
         }
     }
 
+    // updates page route
     onRouteChange = (route) => {
         this.setState({route: route});
     }
 
-    loadUser = (user) => {
-        this.setState({
-            user: {
-                id: user.id,
-                name: user.name,
-                email: user.email,
-                entries: user.entries,
-                joined: user.joined
-            }
-        });
+    // loads user on sign in or sign up and updates individual user properties
+    loadUser = (obj) => {
+        this.setState(Object.assign(this.state.user, obj));
     }
 
     render() {
@@ -50,6 +44,7 @@ class App extends React.Component {
         else if(this.state.route === "home") {
             content = <Home
                 user={this.state.user}
+                loadUser={this.loadUser}
             />;
         }
         return(

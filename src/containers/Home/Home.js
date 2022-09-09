@@ -31,12 +31,13 @@ class Home extends React.Component {
     faceDetect = async () => {
         const res = await fetch('http://localhost:3001/user/entries', {
             method: 'PUT',
-            headers: {'Content-Type': 'applicaton/json'},
+            headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
                 id: this.props.user.id
             })
         });
-        const data = await res.json();
+        const entries = await res.json();
+        this.props.loadUser(entries);
     }
 
     render() {
