@@ -1,21 +1,10 @@
 import './FaceRecognition.css';
 import React from 'react';
 
-/*
-                    style={
-                        {
-                            top: props.dimensions.top, 
-                            right: props.dimesions.right,
-                            bottom: props.dimensions.bottom,
-                            left: props.dimesions.left
-                        }
-                    }
-*/
-
 class FaceRecognition extends React.Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             height: 0,
             width: 0,
@@ -23,43 +12,57 @@ class FaceRecognition extends React.Component {
         }
     }
 
+    // box will have a value when image loads since props.imageUrl is passed at the same time as props.box
     onLoad = () => {
-        
         const image = document.getElementById('inputImage');
         const height = image.clientHeight;
         const width = image.clientWidth;
-        console.log(width, this.state.box.top_row);
         const dimensions = {
             top: height * this.props.box.top_row,
-            right: width * this.props.box.right_col,
-            bottom: height * this.props.box.bottom_row,
+            right: width - (width * this.props.box.right_col),
+            bottom: height - (height * this.props.box.bottom_row),
             left: width * this.props.box.left_col
         }
-        this.setState({dimensions: dimensions})
+        this.setState({
+            height: image.clientHeight,
+            width: image.clientWidth,
+            dimensions: dimensions
+        });
     }
 
     render() {
+        console.log(this.props.imageUrl);
+        console.log('render', this.state.dimensions);
         if(this.props.imageUrl === "") {
             return(
                 <div className="faceRecognition"></div>
             );
         } else {
+            console.log('case 2');
             return(
-                <div className="faceRecognition">
-                    <div 
-                        className="box"
-    
-                    >
+                // same height and width of img tag dimensions (height:auto & width:500px)
+                <div style={{height: this.state.height, width: this.state.width}} className="faceRecognition">
+                    <div className="imageContainer">
+                        <div style={{
+                                top: this.state.dimensions.top,
+                                right: this.state.dimensions.right,
+                                bottom: this.state.dimensions.bottom,
+                                left: this.state.dimensions.left
+                            }}
+                            className="box"
+                        >
+                        </div>
+                        <img 
+                            onLoad={this.onLoad}
+                            id="inputImage"
+                            src={this.props.imageUrl}
+                            alt="" 
+                            height="auto"
+                            width="500px"
+                        />
                     </div>
-                    <img 
-                        onLoad={this.onLoad}
-                        id="inputImage"
-                        src={this.props.imageUrl}
-                        alt="" 
-                        width="500" 
-                        height="auto"
-                    />
                 </div>
+
             );
         }
     }

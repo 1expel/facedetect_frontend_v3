@@ -11,6 +11,8 @@ class Home extends React.Component {
         this.state = {
             input: "",
             imageUrl: "",
+            weight: 0,
+            height: 0,
             box: {}
         }
     }
@@ -21,12 +23,12 @@ class Home extends React.Component {
 
     onKeyPress = (event) => {
         if(event.key === "Enter") {
-            this.setState({imageUrl: this.state.input}, this.faceDetect);
+            this.faceDetect();
         }
     }
 
     onClick = () => {
-        this.setState({imageUrl: this.state.input}, this.faceDetect);
+        this.faceDetect();
     }
 
     faceDetect = async () => {
@@ -35,15 +37,13 @@ class Home extends React.Component {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
-                    imageUrl: this.state.imageUrl
+                    imageUrl: this.state.input
                 })
             });
             if(res.status !== 200) {
                 throw new Error();
             }
             const box = await res.json();
-            console.log(typeof box.top_row);
-            this.setState({box: box});
             const res2 = await fetch('http://localhost:3001/user/entries', {
                 method: 'PUT',
                 headers: {'Content-Type': 'application/json'},
@@ -56,6 +56,13 @@ class Home extends React.Component {
             }
             const entries = await res2.json();
             this.props.loadUser(entries);
+            // imageUrl and box are set at the same time so when onLoad of image, both have a value
+            // setting imageUrl state in onClick or onKeyPress loads image before box state is set
+            // batching state together notably helps performance too
+            this.setState({
+                imageUrl: this.state.input,
+                box: box
+            });
         }
         catch (err) {
             console.log("an error has occured");
@@ -74,6 +81,7 @@ class Home extends React.Component {
                 />
                 <FaceRecognition
                     imageUrl={this.state.imageUrl}
+                    onLoad={this.onLoad}
                     box={this.state.box}
                 />
             </div>

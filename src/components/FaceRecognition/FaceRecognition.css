@@ -1,3 +1,15 @@
 .faceRecognition {
+    margin-top: 30px;
+    margin-right: auto;
+    margin-bottom: 30px;
+    margin-left: auto;
+}
+
+.imageContainer {
+    position: absolute;
+}
+
+.box {
+    border: 3px solid blue;
     position: absolute;
 }
