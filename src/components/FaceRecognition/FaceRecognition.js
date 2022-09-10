@@ -31,14 +31,11 @@ class FaceRecognition extends React.Component {
     }
 
     render() {
-        console.log(this.props.imageUrl);
-        console.log('render', this.state.dimensions);
         if(this.props.imageUrl === "") {
             return(
                 <div className="faceRecognition"></div>
             );
         } else {
-            console.log('case 2');
             return(
                 // same height and width of img tag dimensions (height:auto & width:500px)
                 <div style={{height: this.state.height, width: this.state.width}} className="faceRecognition">
@@ -66,7 +63,6 @@ class FaceRecognition extends React.Component {
             );
         }
     }
-
 
 }
 

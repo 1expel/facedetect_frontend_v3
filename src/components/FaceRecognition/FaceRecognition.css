@@ -1,15 +1,18 @@
 .faceRecognition {
-    margin-top: 30px;
-    margin-right: auto;
-    margin-bottom: 30px;
-    margin-left: auto;
+    margin: 30px auto 30px auto;
 }
 
 .imageContainer {
     position: absolute;
+    border: 2px solid white;
+    box-shadow: 3px 3px 10px white;
 }
 
 .box {
-    border: 3px solid blue;
+    border: 3px solid hotpink;
     position: absolute;
+}
+
+.box:hover {
+    cursor: pointer;
 }

@@ -11,8 +11,6 @@ class Home extends React.Component {
         this.state = {
             input: "",
             imageUrl: "",
-            weight: 0,
-            height: 0,
             box: {}
         }
     }
@@ -56,9 +54,11 @@ class Home extends React.Component {
             }
             const entries = await res2.json();
             this.props.loadUser(entries);
-            // imageUrl and box are set at the same time so when onLoad of image, both have a value
-            // setting imageUrl state in onClick or onKeyPress loads image before box state is set
-            // batching state together notably helps performance too
+            /* NOTE
+                imageUrl and box are set at the same time so when onLoad of image, both have a value
+                setting imageUrl state in onClick or onKeyPress loads image before box state is set
+                batching state together notably helps performance too
+            */
             this.setState({
                 imageUrl: this.state.input,
                 box: box

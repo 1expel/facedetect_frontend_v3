@@ -29,6 +29,7 @@ const Nav = (props) => {
                     onClick={props.onRouteChange}
                     newRoute="signIn"
                     text="Sign Out"
+                    className="notActive"
                 />
             </div>
         )
