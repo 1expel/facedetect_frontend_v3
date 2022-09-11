@@ -65,19 +65,16 @@ class SignUp extends React.Component {
         return(
             <Form>
                 <h1>Sign Up</h1>
-                <h6>Name</h6>
                 <Input
                     onChange={this.onChange}
                     onKeyPress={this.onKeyPress}
                     name="name"
                 />
-                <h6>Email</h6>
                 <Input
                     onChange={this.onChange}
                     onKeyPress={this.onKeyPress}
                     name="email"
                 />
-                <h6>Password</h6>
                 <Input
                     onChange={this.onChange}
                     onKeyPress={this.onKeyPress}

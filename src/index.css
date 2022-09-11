@@ -21,6 +21,11 @@ html, body, #root, #root>div {
     src: local("EdgeOfTheGalaxy"), url("./fonts/EdgeOfTheGalaxy.otf") format("truetype");
 }
 
+@font-face {
+    font-family: "Gepeste";
+    src: local("Gepeste"), url("./fonts/Gepeste.ttf") format("truetype");
+}
+
 h1,h2 {
     font-family: "Edge of the Galaxy";
     letter-spacing: 3px;

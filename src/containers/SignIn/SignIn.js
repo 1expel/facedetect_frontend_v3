@@ -58,20 +58,18 @@ class SignIn extends React.Component {
     render() {
         return(
             <Form>
-                <h1 style={{fontSize: '2.5em'}}>Sign In</h1>
+                <h1 style={{fontSize: '2.5em', color: 'white'}}>Sign In</h1>
                 <Input
-                    style={{marginTop: '30px'}}
                     onChange={this.onChange}
                     onKeyPress={this.onKeyPress}
-                    className=''
+                    className='signInEmail'
                     placeHolder='Email'
                     name='email'
                 />
                 <Input 
-                    style={{marginTop: '30px'}}
                     onChange={this.onChange}
                     onKeyPress={this.onKeyPress}
-                    className=''
+                    className='signInPassword'
                     placeHolder='Password'
                     type='password'
                     name='password'
@@ -80,7 +78,7 @@ class SignIn extends React.Component {
                     onClick={this.onClick}
                     text="Sign In"
                 />
-                <h6>Don't have an account? Sign Up</h6>
+                <h6 style={{color: 'white'}}>Don't have an account? Sign Up</h6>
             </Form>
         );
     }

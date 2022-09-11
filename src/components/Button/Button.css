@@ -2,6 +2,13 @@
     padding: 15px;
     border-radius: 10px;
     background-color: #4E5283;
+    border: 2px solid #4E5283;
     color: #FFFAFB;
-    width: 200px
+    width: 200px;
+    font-family: Gepeste;
+}
+
+.button:hover {
+    cursor: pointer;
+    border: 2px solid white;
 }
