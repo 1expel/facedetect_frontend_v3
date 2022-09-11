@@ -1,7 +1,7 @@
 .form {
     text-align: center;
     margin: auto;
-    padding:25px;
+    padding: 30px 50px 30px 50px;
     background: linear-gradient(89deg, #FF5EDF 0%, #04C8DE 100%);
     border: 2px solid white;
     box-shadow: 3px 3px 10px white;

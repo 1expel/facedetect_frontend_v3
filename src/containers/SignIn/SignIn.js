@@ -58,19 +58,23 @@ class SignIn extends React.Component {
     render() {
         return(
             <Form>
-                <h1>Sign In</h1>
-                <h6>Email</h6>
+                <h1 style={{fontSize: '2.5em'}}>Sign In</h1>
                 <Input
+                    style={{marginTop: '30px'}}
                     onChange={this.onChange}
                     onKeyPress={this.onKeyPress}
-                    name="email"
+                    className=''
+                    placeHolder='Email'
+                    name='email'
                 />
-                <h6>Password</h6>
                 <Input 
+                    style={{marginTop: '30px'}}
                     onChange={this.onChange}
                     onKeyPress={this.onKeyPress}
-                    type="password"
-                    name="password"
+                    className=''
+                    placeHolder='Password'
+                    type='password'
+                    name='password'
                 />
                 <Button
                     onClick={this.onClick}
