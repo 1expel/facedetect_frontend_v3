@@ -1,14 +1,19 @@
 .button {
     padding: 15px;
     border-radius: 10px;
-    background-color: #4E5283;
-    border: 2px solid #4E5283;
-    color: #FFFAFB;
+    background-color: #F5EFFF;
+    border: 2px solid #F5EFFF;
+    color: grey;
     width: 200px;
     font-family: Gepeste;
+    font-size: 16px;
 }
 
 .button:hover {
     cursor: pointer;
     border: 2px solid white;
+}
+
+.imageUrlButton {
+    border-radius: 0px 5px 5px 0px;
 }

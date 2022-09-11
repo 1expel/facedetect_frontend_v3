@@ -64,20 +64,26 @@ class SignUp extends React.Component {
     render() {
         return(
             <Form>
-                <h1>Sign Up</h1>
+                <h1 style={{fontSize: '2.5em', color: 'white'}}>Sign Up</h1>
                 <Input
                     onChange={this.onChange}
                     onKeyPress={this.onKeyPress}
+                    className='signUpName'
+                    placeHolder='Name'
                     name="name"
                 />
                 <Input
                     onChange={this.onChange}
                     onKeyPress={this.onKeyPress}
+                    className='signUpEmail'
+                    placeHolder='Email'
                     name="email"
                 />
                 <Input
                     onChange={this.onChange}
                     onKeyPress={this.onKeyPress}
+                    className='signUpPassword'
+                    placeHolder='Password'
                     type="password"
                     name="password"
                 />

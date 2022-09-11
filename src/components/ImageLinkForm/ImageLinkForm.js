@@ -11,9 +11,11 @@ const ImageLinkForm = (props) => {
                 <Input                    
                     onChange={props.onChange}
                     onKeyPress={props.onKeyPress}
+                    className="imageUrlInput" placeHolder='Enter an image url' type="text"
                 />
                 <Button
                     onClick={props.onClick}
+                    className="imageUrlButton"
                     text="Enter"
                 />
             </Form>

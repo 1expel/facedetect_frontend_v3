@@ -27,6 +27,7 @@ html, body, #root, #root>div {
 }
 
 h1,h2 {
+    color: white;
     font-family: "Edge of the Galaxy";
     letter-spacing: 3px;
     font-weight: normal;

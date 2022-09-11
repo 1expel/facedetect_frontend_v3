@@ -5,6 +5,7 @@
     border-radius: 5px;
     width: 300px;
     font-family: Gepeste;
+    font-size: 16px;
 }
 
 .input:focus {
@@ -18,4 +19,22 @@
 
 .signInPassword {
     margin: 15px 0px 30px 0px;
+}
+
+.signUpName {
+    margin-top: 30px;
+}
+
+.signUpEmail {
+    margin: 15px 0px;
+}
+
+.signUpPassword {
+    margin: 15px 0px 30px 0px;
+}
+
+.imageUrlInput {
+    display: inline;
+    width: 60%;
+    border-radius: 5px 0px 0px 5px;
 }
