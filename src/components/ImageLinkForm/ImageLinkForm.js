@@ -7,11 +7,11 @@ const ImageLinkForm = (props) => {
     return(
         <div className="imageLinkForm">
             <h1>Enter an Image Url That Has a Face to Be Detected</h1>
-            <Form>
+            <Form className="homeForm">
                 <Input                    
                     onChange={props.onChange}
                     onKeyPress={props.onKeyPress}
-                    className="imageUrlInput" placeHolder='Enter an image url' type="text"
+                    id="imageUrlInput" placeHolder='Enter an image url' type="text"
                 />
                 <Button
                     onClick={props.onClick}

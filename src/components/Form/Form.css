@@ -8,3 +8,6 @@
     border-radius: 5px;
 }
 
+.homeForm {
+    display: flex;
+}

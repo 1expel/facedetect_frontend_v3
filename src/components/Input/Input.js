@@ -5,6 +5,7 @@ const Input = (props) => {
         <input
             onChange={(event) => props.onChange(event, props.name)}
             onKeyPress={props.onKeyPress}
+            id={props.id}
             className={"input " + props.className}
             placeholder={props.placeHolder}
             type={props.type}

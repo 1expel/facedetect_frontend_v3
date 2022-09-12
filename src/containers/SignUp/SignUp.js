@@ -68,21 +68,21 @@ class SignUp extends React.Component {
                 <Input
                     onChange={this.onChange}
                     onKeyPress={this.onKeyPress}
-                    className='signUpName'
+                    id='signUpName'
                     placeHolder='Name'
                     name="name"
                 />
                 <Input
                     onChange={this.onChange}
                     onKeyPress={this.onKeyPress}
-                    className='signUpEmail'
+                    id='signUpEmail'
                     placeHolder='Email'
                     name="email"
                 />
                 <Input
                     onChange={this.onChange}
                     onKeyPress={this.onKeyPress}
-                    className='signUpPassword'
+                    id='signUpPassword'
                     placeHolder='Password'
                     type="password"
                     name="password"
