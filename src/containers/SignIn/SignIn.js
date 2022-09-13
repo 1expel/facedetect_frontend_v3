@@ -11,7 +11,10 @@ class SignIn extends React.Component {
         this.state = {
             email: "",
             password: "",
-            error: false
+            error: {
+                status: false,
+                msg: ''
+            }
         }
     }
 
@@ -46,22 +49,34 @@ class SignIn extends React.Component {
             });
             const user = await res.json();
             if(res.status !== 200) {
-                throw new Error(user);
+                this.setState({error: {
+                    status: res.status,
+                    msg: user
+                }});
+                return;
             }
             this.props.loadUser(user);
             this.props.onRouteChange('home');
         } 
         catch(err) {
-            this.setState({error: true})
+            this.setState({error: {
+                status: 500,
+                msg: 'Something went wrong'
+            }});
         }
     }
 
     render() {
         let classes = '';
         let content;
-        if(this.state.error) {
+        if(this.state.error.status) {
             classes = 'inputError';
-            content = <h4 style={{color: 'red'}}>Error: invalid email or password</h4>;
+            content = <h4 style={{color: 'red'}}>{
+                'Error '
+                + this.state.error.status
+                + ': '
+                + this.state.error.msg
+            }</h4>;
         }
         return(
             <Form>
