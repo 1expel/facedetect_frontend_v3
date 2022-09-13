@@ -11,7 +11,11 @@ class Home extends React.Component {
         this.state = {
             input: "",
             imageUrl: "",
-            box: {}
+            box: {},
+            error: {
+                status: false,
+                msg: ''
+            }
         }
     }
 
@@ -38,21 +42,57 @@ class Home extends React.Component {
                     imageUrl: this.state.input
                 })
             });
-            if(res.status !== 200) {
-                throw new Error();
-            }
             const box = await res.json();
-            const res2 = await fetch('http://localhost:3001/user/entries', {
+            // error
+            if(res.status !== 200) {
+                this.setState({error: {
+                    status: res.status,
+                    msg: box
+                }});
+                return;
+            }
+            // remove previous error
+            else if(res.status === 200 && this.state.error.status !== false) {
+                this.setState({error: {
+                    status: false,
+                    msg: ''
+                }});
+            }
+            this.updateUserEntries(box);
+        }
+        catch (err) {
+            this.setState({error: {
+                status: 500,
+                msg: 'Something went wrong'
+            }});
+        }
+    }
+
+    updateUserEntries = async (box) => {
+        try {
+            const res = await fetch('http://localhost:3001/user/entries', {
                 method: 'PUT',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
                     id: this.props.user.id
                 })
             });
-            if(res2.status !== 200) {
-                throw new Error();
+            const entries = await res.json();
+            // error
+            if(res.status !== 200) {
+                this.setState({error: {
+                    status: res.status,
+                    msg: entries
+                }});
+                return;
             }
-            const entries = await res2.json();
+            // remove previous error
+            else if(res.status === 200 && this.state.error.status !== false) {
+                this.setState({error: {
+                    status: false,
+                    msg: ''
+                }});
+            }
             this.props.loadUser(entries);
             /* NOTE
                 imageUrl and box are set at the same time so when onLoad of image, both have a value
@@ -65,7 +105,10 @@ class Home extends React.Component {
             });
         }
         catch (err) {
-            console.log("an error has occured");
+            this.setState({error: {
+                status: 500,
+                msg: 'Something went wrong'
+            }});
         }
     }
 
@@ -78,6 +121,7 @@ class Home extends React.Component {
                     onChange={this.onChange} 
                     onKeyPress={this.onKeyPress}
                     onClick={this.onClick}
+                    error={this.state.error}
                 />
                 <FaceRecognition
                     imageUrl={this.state.imageUrl}

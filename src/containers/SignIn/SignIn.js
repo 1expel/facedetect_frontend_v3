@@ -69,7 +69,7 @@ class SignIn extends React.Component {
     render() {
         let classes = '';
         let content;
-        if(this.state.error.status) {
+        if(this.state.error.status !== false) {
             classes = 'inputError';
             content = <h4 style={{color: 'red'}}>{
                 'Error '
