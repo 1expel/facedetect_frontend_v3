@@ -11,7 +11,8 @@ class SignUp extends React.Component {
         this.state = {
             name: "",
             email: "",
-            password: ""
+            password: "",
+            error: false
         }
     }
 
@@ -56,19 +57,26 @@ class SignUp extends React.Component {
             this.props.onRouteChange("home");
         } 
         catch(err) {
-            alert(err);
+            this.setState({error: true})
         }
-
     }
 
     render() {
+        let classes = '';
+        let content;
+        if(this.state.error) {
+            classes = 'inputError';
+            content = <h4 style={{color: 'red'}}>Error: invalid email or password</h4>;
+        }   
         return(
             <Form>
                 <h1 style={{fontSize: '2.5em', color: 'white'}}>Sign Up</h1>
+                {content}
                 <Input
                     onChange={this.onChange}
                     onKeyPress={this.onKeyPress}
                     id='signUpName'
+                    className={classes}
                     placeHolder='Name'
                     name="name"
                 />
@@ -76,6 +84,7 @@ class SignUp extends React.Component {
                     onChange={this.onChange}
                     onKeyPress={this.onKeyPress}
                     id='signUpEmail'
+                    className={classes}
                     placeHolder='Email'
                     name="email"
                 />
@@ -83,6 +92,7 @@ class SignUp extends React.Component {
                     onChange={this.onChange}
                     onKeyPress={this.onKeyPress}
                     id='signUpPassword'
+                    className={classes}
                     placeHolder='Password'
                     type="password"
                     name="password"
