@@ -1,4 +1,4 @@
-import React from 'react';
+import {Component} from 'react';
 import './App.css';
 import Particles from '../../components/Particles/Particles.js';
 import Header from '../../components/Header/Header.js';
@@ -7,19 +7,27 @@ import SignUp from '../SignUp/SignUp.js';
 import Home from '../Home/Home.js';
 import Footer from '../../components/Footer/Footer.js';
 
-class App extends React.Component {
+class App extends Component {
 
     constructor() {
         super();
         this.state = {
             route: 'signIn',
             user: {}
-        }
+        };
     }
 
-    // updates page route
     onRouteChange = (route) => {
-        this.setState({route: route});
+        // reset user state on sign out
+        if(route === 'signOut') {
+            this.setState({
+                route: 'signIn',
+                user: {}
+            });
+        }
+        else {
+            this.setState({route: route});
+        }
     }
 
     // loads user on sign in or sign up and updates individual user properties

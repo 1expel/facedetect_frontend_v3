@@ -6,7 +6,7 @@ import Button from '../Button/Button.js';
 const ImageLinkForm = (props) => {
     let classes = '';
     let content;
-    if(props.error.status) {
+    if(props.error.status !== false) {
         classes = 'inputError';
         content = <h4 style={{color: 'red'}}>{
             'Error '

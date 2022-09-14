@@ -1,10 +1,11 @@
 import './SignIn.css';
-import React from 'react';
+import {Component} from 'react';
 import Form from '../../components/Form/Form.js';
 import Input from '../../components/Input/Input.js';
 import Button from '../../components/Button/Button.js';
+import Link from '../../components/Link/Link.js';
 
-class SignIn extends React.Component {
+class SignIn extends Component {
 
     constructor() {
         super();
@@ -103,7 +104,16 @@ class SignIn extends React.Component {
                     onClick={this.onClick}
                     text="Sign In"
                 />
-                <h6 style={{color: 'white'}}>Don't have an account? Sign Up</h6>
+                <h6 style={{color: 'white'}}>
+                    Don't have an account?
+                    <Link
+                        onClick={this.props.onRouteChange}
+                        newRoute='signUp'
+                        className=''
+                        text='Sign Up'
+                        type='span'
+                    />
+                </h6>
             </Form>
         );
     }

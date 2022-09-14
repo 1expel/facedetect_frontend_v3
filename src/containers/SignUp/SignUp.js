@@ -1,10 +1,10 @@
 import './SignUp.css';
-import React from 'react';
+import {Component} from 'react';
 import Form from '../../components/Form/Form.js';
 import Input from '../../components/Input/Input.js';
 import Button from '../../components/Button/Button.js';
 
-class SignUp extends React.Component {
+class SignUp extends Component {
 
     constructor() {
         super();

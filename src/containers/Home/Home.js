@@ -1,10 +1,10 @@
 import './Home.css';
-import React from 'react';
+import {Component} from 'react';
 import Rank from '../../components/Rank/Rank.js';
 import ImageLinkForm from '../../components/ImageLinkForm/ImageLinkForm.js';
 import FaceRecognition from '../../components/FaceRecognition/FaceRecognition.js';
 
-class Home extends React.Component {
+class Home extends Component {
 
     constructor() {
         super();
@@ -86,7 +86,7 @@ class Home extends React.Component {
                 }});
                 return;
             }
-            // remove previous error
+            // remove previous error (probably redudant from faceDetect error removal code)
             else if(res.status === 200 && this.state.error.status !== false) {
                 this.setState({error: {
                     status: false,
@@ -125,7 +125,6 @@ class Home extends React.Component {
                 />
                 <FaceRecognition
                     imageUrl={this.state.imageUrl}
-                    onLoad={this.onLoad}
                     box={this.state.box}
                 />
             </div>

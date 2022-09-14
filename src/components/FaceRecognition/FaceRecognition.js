@@ -1,7 +1,7 @@
 import './FaceRecognition.css';
-import React from 'react';
+import {Component} from 'react';
 
-class FaceRecognition extends React.Component {
+class FaceRecognition extends Component {
 
     constructor(props) {
         super(props);

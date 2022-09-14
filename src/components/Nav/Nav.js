@@ -27,7 +27,7 @@ const Nav = (props) => {
             <div className="nav">
                 <Link 
                     onClick={props.onRouteChange}
-                    newRoute="signIn"
+                    newRoute="signOut"
                     text="Sign Out"
                     className="notActive"
                 />
