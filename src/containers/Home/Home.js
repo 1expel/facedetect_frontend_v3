@@ -35,7 +35,7 @@ class Home extends Component {
 
     faceDetect = async () => {
         try {
-            const res = await fetch('http://localhost:3001/clarifai/faceDetection', {
+            const res = await fetch('https://facedetect-backend-v3.herokuapp.com/clarifai/faceDetection', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
@@ -70,7 +70,7 @@ class Home extends Component {
 
     updateUserEntries = async (box) => {
         try {
-            const res = await fetch('http://localhost:3001/user/entries', {
+            const res = await fetch('https://facedetect-backend-v3.herokuapp.com/user/entries', {
                 method: 'PUT',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({

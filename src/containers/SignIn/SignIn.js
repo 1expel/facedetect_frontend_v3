@@ -40,7 +40,7 @@ class SignIn extends Component {
 
     signIn = async () => {
         try {
-            const res = await fetch('http://localhost:3001/user/signIn', {
+            const res = await fetch('https://facedetect-backend-v3.herokuapp.com/user/signIn', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
